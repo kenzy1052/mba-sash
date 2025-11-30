@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graduation Sash Orders</title>
+
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f5f7fa;
+        padding: 40px;
+        margin: 0;
+        color: #222;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 32px;
+        font-weight: 700;
+      }
+
+      .card {
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 20px;
+        margin: 15px auto;
+        width: 100%;
+        max-width: 800px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        transition: 0.2s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      }
+
+      .name {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      .toggleBtn {
+        background: #0057ff;
+        color: white;
+        padding: 8px 14px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.2s ease;
+        font-size: 14px;
+      }
+
+      .toggleBtn:hover {
+        background: #003fcc;
+      }
+
+      .details {
+        margin-top: 15px;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+        display: none;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .detail-row {
+        margin-bottom: 8px;
+        line-height: 1.5rem;
+      }
+
+      .label {
+        font-weight: 600;
+        color: #444;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-5px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Graduation Sash Orders</h1>
+
+    <script>
+      function toggleDetails(id) {
+        let section = document.getElementById(id);
+        section.style.display =
+          section.style.display === "none" ? "block" : "none";
+      }
+    </script>
+
+    <!-- ========== RECORDS START HERE ========== -->
+
+    <!-- 1 -->
+    <div class="card">
+      <div class="name">RICHARD OSEI POKU</div>
+      <button class="toggleBtn" onclick="toggleDetails('d1')">Show More</button>
+      <div class="details" id="d1">
+        <div class="detail-row">
+          <span class="label">Year on Sash:</span> Yes
+        </div>
+        <div class="detail-row">
+          <span class="label">Program:</span> BA Economics and Geography
+        </div>
+        <div class="detail-row">
+          <span class="label">Institution:</span> University of Cape Coast
+        </div>
+        <div class="detail-row">
+          <span class="label">Other Info:</span> God Did
+        </div>
+        <div class="detail-row">
+          <span class="label">Logo Option:</span> School logo on one side
+        </div>
+        <div class="detail-row">
+          <span class="label">Inscription:</span> By His grace
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="card">
+      <div class="name">TETTEH SIMON</div>
+      <button class="toggleBtn" onclick="toggleDetails('d2')">Show More</button>
+      <div class="details" id="d2">
+        <div class="detail-row">
+          <span class="label">Year on Sash:</span> Yes
+        </div>
+        <div class="detail-row">
+          <span class="label">Program:</span> BA. SOCIAL SCIENCE
+        </div>
+        <div class="detail-row">
+          <span class="label">Institution:</span> UCC
+        </div>
+        <div class="detail-row"><span class="label">Other Info:</span> —</div>
+        <div class="detail-row">
+          <span class="label">Logo Option:</span> School logo on both side
+        </div>
+        <div class="detail-row"><span class="label">Inscription:</span> —</div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="card">
+      <div class="name">ATTA NYARKOH GEORGE</div>
+      <button class="toggleBtn" onclick="toggleDetails('d3')">Show More</button>
+      <div class="details" id="d3">
+        <div class="detail-row">
+          <span class="label">Year on Sash:</span> No
+        </div>
+        <div class="detail-row">
+          <span class="label">Program:</span> SOCIAL SCIENCES
+        </div>
+        <div class="detail-row">
+          <span class="label">Institution:</span> UNIVERSITY OF CAPE COAST (UCC)
+        </div>
+        <div class="detail-row"><span class="label">Other Info:</span> —</div>
+        <div class="detail-row">
+          <span class="label">Logo Option:</span> School logo on one side
+        </div>
+        <div class="detail-row">
+          <span class="label">Inscription:</span> BELIEVE & ACHIEVE
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="card">
+      <div class="name">MISS PRISCILLA MENSAH</div>
+      <button class="toggleBtn" onclick="toggleDetails('d4')">Show More</button>
+      <div class="details" id="d4">
+        <div class="detail-row">
+          <span class="label">Year on Sash:</span> Yes
+        </div>
+        <div class="detail-row">
+          <span class="label">Program:</span> BSC AGRIBUSINESS
+        </div>
+        <div class="detail-row">
+          <span class="label">Institution:</span> University of Cape Coast
+        </div>
+        <div class="detail-row">
+          <span class="label">Other Info:</span> GOD’S BEST
+        </div>
+        <div class="detail-row">
+          <span class="label">Logo Option:</span> School logo on both side
+        </div>
+        <div class="detail-row"><span class="label">Inscription:</span> —</div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="card">
+      <div class="name">Mr. ABUBAKAR MUSTAPHA</div>
+      <button class="toggleBtn" onclick="toggleDetails('d5')">Show More</button>
+      <div class="details" id="d5">
+        <div class="detail-row">
+          <span class="label">Year on Sash:</span> Yes
+        </div>
+        <div class="detail-row">
+          <span class="label">Program:</span> BSc Agribusiness
+        </div>
+        <div class="detail-row">
+          <span class="label">Institution:</span> University of Cape Coast
+        </div>
+        <div class="detail-row">
+          <span class="label">Other Info:</span> Alhamdulillah Regardless
+        </div>
+        <div class="detail-row">
+          <span class="label">Logo Option:</span> School logo on one side
+        </div>
+        <div class="detail-row">
+          <span class="label">Inscription:</span> Alhamdulillah Regardless
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="card">
+      <div class="name">EVANS KOJO BAFFOE AKATSA</div>
+      <button class="toggleBtn" onclick="toggleDetails('d6')">Show More</button>
+      <div class="details" id="d6">
+        <div class="detail-row">
+          <span class="label">Year on Sash:</span> Yes
+        </div>
+        <div class="detail-row">
+          <span class="label">Program:</span> BSC AGRIBUSINESS
+        </div>
+        <div class="detail-row">
+          <span class="label">Institution:</span> University of Cape Coast
+        </div>
+        <div class="detail-row">
+          <span class="label">Other Info:</span> GLORIOUS END
+        </div>
+        <div class="detail-row">
+          <span class="label">Logo Option:</span> School logo on both side
+        </div>
+        <div class="detail-row"><span class="label">Inscription:</span> —</div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="card">
+      <div class="name">PRISCILLA N.A MENSAH</div>
+      <button class="toggleBtn" onclick="toggleDetails('d7')">Show More</button>
+      <div class="details" id="d7">
+        <div class="detail-row">
+          <span class="label">Year on Sash:</span> Yes
+        </div>
+        <div class="detail-row">
+          <span class="label">Program:</span> BSC AGRIBUSINESS
+        </div>
+        <div class="detail-row">
+          <span class="label">Institution:</span> UNIVERSITY OF CAPE COAST
+        </div>
+        <div class="detail-row">
+          <span class="label">Other Info:</span> GOD’S BEST
+        </div>
+        <div class="detail-row">
+          <span class="label">Logo Option:</span> School logo on one side
+        </div>
+        <div class="detail-row">
+          <span class="label">Inscription:</span> GOD’S BEST
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="card">
+      <div class="name">Mr. Benjamin Mawutor Attakumah</div>
+      <button class="toggleBtn" onclick="toggleDetails('d8')">Show More</button>
+      <div class="details" id="d8">
+        <div class="detail-row">
+          <span class="label">Year on Sash:</span> No
+        </div>
+        <div class="detail-row">
+          <span class="label">Program:</span> BSc health information management
+        </div>
+        <div class="detail-row">
+          <span class="label">Institution:</span> University of Cape Coast
+        </div>
+        <div class="detail-row">
+          <span class="label">Other Info:</span> Godsown
+        </div>
+        <div class="detail-row">
+          <span class="label">Logo Option:</span> School logo on one side
+        </div>
+        <div class="detail-row">
+          <span class="label">Inscription:</span> Godsown
+        </div>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="card">
+      <div class="name">MISS PERPETUAL ADU-BRAKO</div>
+      <button class="toggleBtn" onclick="toggleDetails('d9')">Show More</button>
+      <div class="details" id="d9">
+        <div class="detail-row">
+          <span class="label">Year on Sash:</span> No
+        </div>
+        <div class="detail-row">
+          <span class="label">Program:</span> HUMAN RESOURCE MANAGEMENT
+        </div>
+        <div class="detail-row">
+          <span class="label">Institution:</span> University of Cape Coast
+        </div>
+        <div class="detail-row">
+          <span class="label">Other Info:</span> "Quotation: Jeremiah 29:11 – A
+          New Chapter In Life"
+        </div>
+        <div class="detail-row">
+          <span class="label">Logo Option:</span> School logo on both side
+        </div>
+        <div class="detail-row"><span class="label">Inscription:</span> —</div>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="card">
+      <div class="name">GEORGE ASANTE</div>
+      <button class="toggleBtn" onclick="toggleDetails('d10')">
+        Show More
+      </button>
+      <div class="details" id="d10">
+        <div class="detail-row">
+          <span class="label">Year on Sash:</span> Yes
+        </div>
+        <div class="detail-row">
+          <span class="label">Program:</span> B.ED SOCIAL SCIENCES
+        </div>
+        <div class="detail-row">
+          <span class="label">Institution:</span> UCC
+        </div>
+        <div class="detail-row">
+          <span class="label">Other Info:</span> NYAME NE HENE
+        </div>
+        <div class="detail-row">
+          <span class="label">Logo Option:</span> School logo on one side
+        </div>
+        <div class="detail-row">
+          <span class="label">Inscription:</span> NYAME NE HENE
+        </div>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="card">
+      <div class="name">AMOAFO CALEB AMPADU</div>
+      <button class="toggleBtn" onclick="toggleDetails('d11')">
+        Show More
+      </button>
+      <div class="details" id="d11">
+        <div class="detail-row">
+          <span class="label">Year on Sash:</span> Yes
+        </div>
+        <div class="detail-row">
+          <span class="label">Program:</span> B.ED SOCIAL SCIENCE
+        </div>
+        <div class="detail-row">
+          <span class="label">Institution:</span> UCC
+        </div>
+        <div class="detail-row">
+          <span class="label">Other Info:</span> JOURNEYED WITH CHRIST
+        </div>
+        <div class="detail-row">
+          <span class="label">Logo Option:</span> School logo on one side
+        </div>
+        <div class="detail-row">
+          <span class="label">Inscription:</span> JOURNEYED WITH CHRIST
+        </div>
+      </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="card">
+      <div class="name">MISS WENDY YAYRA DZOTEPE</div>
+      <button class="toggleBtn" onclick="toggleDetails('d12')">
+        Show More
+      </button>
+      <div class="details" id="d12">
+        <div class="detail-row">
+          <span class="label">Year on Sash:</span> Yes
+        </div>
+        <div class="detail-row">
+          <span class="label">Program:</span> BSC AGRIBUSINESS
+        </div>
+        <div class="detail-row">
+          <span class="label">Institution:</span> UNIVERSITY OF CAPE COAST
+        </div>
+        <div class="detail-row">
+          <span class="label">Other Info:</span> A Quotation - Jeremiah 29:11
+        </div>
+        <div class="detail-row">
+          <span class="label">Logo Option:</span> School logo on both side
+        </div>
+        <div class="detail-row"><span class="label">Inscription:</span> —</div>
+      </div>
+    </div>
+
+    <!-- 13 -->
+    <div class="card">
+      <div class="name">SAMUEL OWUSU</div>
+      <button class="toggleBtn" onclick="toggleDetails('d13')">
+        Show More
+      </button>
+      <div class="details" id="d13">
+        <div class="detail-row">
+          <span class="label">Year on Sash:</span> Yes
+        </div>
+        <div class="detail-row">
+          <span class="label">Program:</span> BSc. AGRIBUSINESS
+        </div>
+        <div class="detail-row">
+          <span class="label">Institution:</span> UNIVERSITY OF CAPE COAST
+        </div>
+        <div class="detail-row">
+          <span class="label">Other Info:</span> I MADE MAMA PROUD
+        </div>
+        <div class="detail-row">
+          <span class="label">Logo Option:</span> School logo on both side
+        </div>
+        <div class="detail-row"><span class="label">Inscription:</span> —</div>
+      </div>
+    </div>
+
+    <!-- ========== END OF RECORDS ========== -->
+  </body>
+</html>
