@@ -42,7 +42,7 @@
       }
 
       .container {
-          max-width: 1400px;
+          max-width: 1200px;
           margin: 0 auto;
           padding: 20px;
       }
@@ -225,37 +225,45 @@
           color: white;
       }
 
-      .cards-container {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-          gap: 30px;
+      /* Updated accordion-style cards */
+      .accordion-container {
           margin-top: 30px;
       }
 
-      .card {
+      .accordion-item {
           background: white;
           border-radius: 12px;
-          overflow: hidden;
+          margin-bottom: 20px;
           box-shadow: var(--card-shadow);
+          overflow: hidden;
           transition: all 0.3s ease;
-          position: relative;
-          page-break-inside: avoid;
-          break-inside: avoid;
       }
 
-      .card:hover {
+      .accordion-item:hover {
           box-shadow: var(--hover-shadow);
-          transform: translateY(-5px);
       }
 
-      .card-header {
+      .accordion-header {
+          padding: 20px 25px;
           background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
           color: white;
-          padding: 25px;
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          transition: all 0.3s ease;
           position: relative;
       }
 
-      .card-header::after {
+      .accordion-header:hover {
+          background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+      }
+
+      .accordion-header.active {
+          background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+      }
+
+      .accordion-header.active::after {
           content: "";
           position: absolute;
           bottom: 0;
@@ -265,103 +273,76 @@
           background: var(--gold-color);
       }
 
-      .card-header h2 {
+      .accordion-title {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+      }
+
+      .accordion-title i {
           font-size: 1.5rem;
-          margin-bottom: 10px;
+      }
+
+      .accordion-title-text h3 {
+          font-size: 1.4rem;
+          margin-bottom: 5px;
           font-weight: 600;
-          display: flex;
-          align-items: center;
-          gap: 10px;
       }
 
-      .card-header .program {
-          font-size: 1rem;
+      .accordion-title-text p {
+          font-size: 0.9rem;
           opacity: 0.9;
-          display: flex;
-          align-items: center;
-          gap: 8px;
       }
 
-      .card-header .institution {
-          font-size: 0.9rem;
-          opacity: 0.8;
-          margin-top: 5px;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-      }
-
-      .show-more-btn {
-          background: rgba(255, 255, 255, 0.2);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          color: white;
-          padding: 10px 20px;
-          border-radius: 50px;
-          cursor: pointer;
-          font-size: 0.9rem;
-          font-weight: 500;
-          transition: all 0.3s ease;
-          margin-top: 15px;
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-      }
-
-      .show-more-btn:hover {
-          background: rgba(255, 255, 255, 0.3);
-      }
-
-      .show-more-btn i {
+      .accordion-icon {
+          font-size: 1.2rem;
           transition: transform 0.3s ease;
       }
 
-      .show-more-btn.active i {
+      .accordion-header.active .accordion-icon {
           transform: rotate(180deg);
       }
 
-      .card-body {
-          padding: 0;
+      .accordion-body {
           max-height: 0;
           overflow: hidden;
-          transition: max-height 0.5s ease, padding 0.5s ease;
+          transition: max-height 0.4s ease, padding 0.4s ease;
+          padding: 0 25px;
       }
 
-      .card-body.active {
-          padding: 25px;
+      .accordion-body.active {
           max-height: 1000px;
+          padding: 25px;
       }
 
-      .info-row {
-          display: flex;
+      .accordion-content {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 20px;
+      }
+
+      .content-section {
           margin-bottom: 20px;
-          border-bottom: 1px solid #f0f0f0;
-          padding-bottom: 15px;
       }
 
-      .info-row:last-child {
-          border-bottom: none;
-          margin-bottom: 0;
-          padding-bottom: 0;
-      }
-
-      .info-label {
-          font-weight: 600;
-          width: 40%;
+      .content-section h4 {
+          font-size: 1rem;
           color: var(--primary-color);
+          margin-bottom: 10px;
           display: flex;
           align-items: center;
-          gap: 10px;
+          gap: 8px;
       }
 
-      .info-label i {
+      .content-section h4 i {
           color: var(--accent-color);
-          width: 20px;
-          text-align: center;
       }
 
-      .info-value {
-          width: 60%;
+      .content-section p {
+          font-size: 0.95rem;
           color: #555;
+          line-height: 1.5;
+          white-space: pre-wrap; /* To handle newlines in otherInfo */
       }
 
       .yes-no {
@@ -540,71 +521,60 @@
           /* Hide interactive elements */
           .stats-container,
           .search-filter-container,
-          .show-more-btn,
+          .accordion-icon,
           .social-links,
           footer {
               display: none !important;
           }
 
-          /* Adjust cards for print */
-          .cards-container {
+          /* Adjust accordion for print */
+          .accordion-container {
               display: block;
               margin-top: 20pt;
-              page-break-inside: avoid;
           }
 
-          .card {
+          .accordion-item {
               background: white;
               border: 1px solid #ddd;
               box-shadow: none;
               margin-bottom: 20pt;
               page-break-inside: avoid;
-              break-inside: avoid;
-              orphans: 3;
-              widows: 3;
           }
 
-          .card-header {
+          .accordion-header {
               background: var(--primary-color) !important;
               color: white !important;
               padding: 15pt;
               page-break-inside: avoid;
           }
 
-          .card-header h2 {
+          .accordion-header h3 {
               font-size: 16pt;
               margin-bottom: 5pt;
           }
 
-          .card-header .program {
+          .accordion-header p {
               font-size: 12pt;
               margin-bottom: 3pt;
           }
 
-          .card-header .institution {
-              font-size: 11pt;
-          }
-
-          /* Show all card bodies when printing */
-          .card-body {
+          /* Show all accordion bodies when printing */
+          .accordion-body {
               padding: 15pt !important;
               max-height: none !important;
               page-break-inside: avoid;
           }
 
-          .info-row {
+          .content-section {
               margin-bottom: 10pt;
-              padding-bottom: 8pt;
           }
 
-          .info-label {
+          .content-section h4 {
               font-weight: 600;
-              width: 35%;
               font-size: 11pt;
           }
 
-          .info-value {
-              width: 65%;
+          .content-section p {
               font-size: 11pt;
           }
 
@@ -643,17 +613,17 @@
           }
 
           /* Ensure no page breaks in critical places */
-          h1, h2, h3 {
+          h1, h2, h3, h4 {
               page-break-after: avoid;
               page-break-inside: avoid;
           }
 
-          .card-header {
+          .accordion-header {
               page-break-after: avoid;
               page-break-inside: avoid;
           }
 
-          .info-row {
+          .content-section {
               page-break-inside: avoid;
           }
 
@@ -674,11 +644,11 @@
           }
 
           /* Counter for numbering */
-          .card {
+          .accordion-item {
               counter-increment: card-counter;
           }
 
-          .card-header::before {
+          .accordion-header::before {
               content: counter(card-counter) ". ";
               font-weight: bold;
               margin-right: 5pt;
@@ -686,20 +656,8 @@
       }
 
       @media (max-width: 768px) {
-          .cards-container {
-              grid-template-columns: 1fr;
-          }
-
           header h1 {
               font-size: 2.2rem;
-          }
-
-          .info-row {
-              flex-direction: column;
-          }
-
-          .info-label, .info-value {
-              width: 100%;
           }
 
           .search-filter-container {
@@ -709,6 +667,10 @@
           .filter-buttons {
               width: 100%;
               justify-content: space-between;
+          }
+
+          .accordion-content {
+              grid-template-columns: 1fr;
           }
       }
     </style>
@@ -720,7 +682,7 @@
           <div class="logo-badge">
             <i class="fas fa-graduation-cap"></i>
           </div>
-          <h1>MBA Graduation Sash Orders</h1>
+          <h1>Graduation Sash Orders</h1>
           <p>University of Cape Coast - Class of 2025</p>
         </div>
       </header>
@@ -728,17 +690,17 @@
       <div class="stats-container">
         <div class="stat-card">
           <i class="fas fa-users"></i>
-          <h3 id="totalOrders">15</h3>
+          <h3 id="totalOrders">29</h3>
           <p>Total Orders</p>
         </div>
         <div class="stat-card">
           <i class="fas fa-check-circle"></i>
-          <h3 id="yearCompletion">11</h3>
+          <h3 id="yearCompletion">21</h3>
           <p>With Year of Completion</p>
         </div>
         <div class="stat-card">
           <i class="fas fa-university"></i>
-          <h3 id="uniquePrograms">6</h3>
+          <h3 id="uniquePrograms">18</h3>
           <p>Unique Programs</p>
         </div>
       </div>
@@ -776,21 +738,19 @@
         <p>Try adjusting your search or filter criteria</p>
       </div>
 
-      <div class="cards-container" id="cardsContainer">
-        <!-- Cards will be dynamically generated here -->
+      <!-- Updated accordion-style container -->
+      <div class="accordion-container" id="accordionContainer">
+        <!-- Accordion items will be dynamically generated here -->
       </div>
 
       <footer>
         <div class="footer-content">
           <div class="footer-logo">
             <i class="fas fa-graduation-cap"></i>
-            <span>MBA Graduation Services</span>
+            <span>Graduation Services</span>
           </div>
           <div>
-            <p>
-              &copy; 2025 University of Cape Coast MBA Program. All rights
-              reserved.
-            </p>
+            <p>&copy; 2025 University of Cape Coast. All rights reserved.</p>
           </div>
           <div class="social-links">
             <a href="#"><i class="fab fa-facebook"></i></a>
@@ -806,14 +766,23 @@
       // Data from the CSV
       const sashOrders = [
         {
-          name: "AMOAFO CALEB AMPADU",
+          name: "RICHARD OSEI POKU",
           yearOfCompletion: "Yes",
-          program: "B.ED SOCIAL SCIENCE",
-          institution: "UCC",
-          otherInfo: "JOURNEYED WITH CHRIST",
+          program: "BA Economics and Geography",
+          institution: "University of Cape Coast",
+          otherInfo: "God Did",
           logoOption:
             "School logo on one side (with custom inscription/text on the other)",
-          inscription: "JOURNEYED WITH CHRIST",
+          inscription: "By His grace",
+        },
+        {
+          name: "TETTEH SIMON",
+          yearOfCompletion: "Yes",
+          program: "BA. SOCIAL SCIENCE",
+          institution: "UCC",
+          otherInfo: "",
+          logoOption: "School logo on both side",
+          inscription: "",
         },
         {
           name: "ATTA NYARKOH GEORGE",
@@ -824,44 +793,6 @@
           logoOption:
             "School logo on one side (with custom inscription/text on the other)",
           inscription: "BELIEVE & ACHIEVE",
-        },
-        {
-          name: "EVANS KOJO BAFFOE AKATSA ( NB: Evans KoJo baffoe Akatsa should be at the right side)",
-          yearOfCompletion: "Yes",
-          program: "BSC AGRIBUSINESS",
-          institution: "University of cape Coast",
-          otherInfo:
-            "GLORIOUS END ( NB: the glorious end should be at the left side)",
-          logoOption: "School logo on both side",
-          inscription: "",
-        },
-        {
-          name: "EVANS KOJO BAFFOE AKATSA ( NB : it should be at the right side)",
-          yearOfCompletion: "Yes",
-          program: "BSC AGRIBUSINESS",
-          institution: "University of cape Coast",
-          otherInfo: "GLORIOUS END( at the left side)",
-          logoOption: "School logo on both side",
-          inscription: "",
-        },
-        {
-          name: "GEORGE ASANTE",
-          yearOfCompletion: "Yes",
-          program: "B.ED SOCIAL SCIENCES",
-          institution: "UCC",
-          otherInfo: "NYAME NE HENE",
-          logoOption:
-            "School logo on one side (with custom inscription/text on the other)",
-          inscription: "NYAME NE HENE",
-        },
-        {
-          name: "MISS PERPETUAL ADU-BRAKO",
-          yearOfCompletion: "No",
-          program: "HUMAN RESOURCE MANAGEMENT",
-          institution: "University of Cape Coast",
-          otherInfo: "Quotation: Jeremiah 29:11\nA New Chapter In life",
-          logoOption: "School logo on both side",
-          inscription: "",
         },
         {
           name: "MISS PRISCILLA MENSAH",
@@ -892,21 +823,12 @@
           inscription: "Alhamdulillah Regardless",
         },
         {
-          name: "Mr. Benjamin Mawutor Attakumah",
-          yearOfCompletion: "No",
-          program: "BSc health information management",
-          institution: "University of Cape Coast",
-          otherInfo: "Godsown",
-          logoOption:
-            "School logo on one side (with custom inscription/text on the other)",
-          inscription: "Godsown",
-        },
-        {
-          name: "MISS WENDY YAYRA DZOTEPE",
+          name: "EVANS KOJO BAFFOE AKATSA ( NB: Evans KoJo baffoe Akatsa should be at the right side)",
           yearOfCompletion: "Yes",
           program: "BSC AGRIBUSINESS",
-          institution: "UNIVERSITY OF CAPE COAST",
-          otherInfo: "A Quotation - Jeremiah 29:11",
+          institution: "University of cape Coast",
+          otherInfo:
+            "GLORIOUS END ( NB: the glorious end should be at the left side)",
           logoOption: "School logo on both side",
           inscription: "",
         },
@@ -921,14 +843,61 @@
           inscription: "GOD'S BEST",
         },
         {
-          name: "RICHARD OSEI POKU",
+          name: "EVANS KOJO BAFFOE AKATSA ( NB : it should be at the right side)",
           yearOfCompletion: "Yes",
-          program: "BA Economics and Geography",
+          program: "BSC AGRIBUSINESS",
+          institution: "University of cape Coast",
+          otherInfo: "GLORIOUS END( at the left side)",
+          logoOption: "School logo on both side",
+          inscription: "",
+        },
+        {
+          name: "Mr. Benjamin Mawutor Attakumah",
+          yearOfCompletion: "No",
+          program: "BSc health information management",
           institution: "University of Cape Coast",
-          otherInfo: "God Did",
+          otherInfo: "Godsown",
           logoOption:
             "School logo on one side (with custom inscription/text on the other)",
-          inscription: "By His grace",
+          inscription: "Godsown",
+        },
+        {
+          name: "MISS PERPETUAL ADU-BRAKO",
+          yearOfCompletion: "No",
+          program: "HUMAN RESOURCE MANAGEMENT",
+          institution: "University of Cape Coast",
+          otherInfo: "Quotation: Jeremiah 29:11\nA New Chapter In life",
+          logoOption: "School logo on both side",
+          inscription: "",
+        },
+        {
+          name: "GEORGE ASANTE",
+          yearOfCompletion: "Yes",
+          program: "B.ED SOCIAL SCIENCES",
+          institution: "UCC",
+          otherInfo: "NYAME NE HENE",
+          logoOption:
+            "School logo on one side (with custom inscription/text on the other)",
+          inscription: "NYAME NE HENE",
+        },
+        {
+          name: "AMOAFO CALEB AMPADU",
+          yearOfCompletion: "Yes",
+          program: "B.ED SOCIAL SCIENCE",
+          institution: "UCC",
+          otherInfo: "JOURNEYED WITH CHRIST",
+          logoOption:
+            "School logo on one side (with custom inscription/text on the other)",
+          inscription: "JOURNEYED WITH CHRIST",
+        },
+        {
+          name: "MISS WENDY YAYRA DZOTEPE",
+          yearOfCompletion: "Yes",
+          program: "BSC AGRIBUSINESS",
+          institution: "UNIVERSITY OF CAPE COAST",
+          otherInfo: "A Quotation - Jeremiah 29:11",
+          logoOption: "School logo on both side",
+          inscription: "",
         },
         {
           name: "SAMUEL OWUSU",
@@ -940,13 +909,138 @@
           inscription: "",
         },
         {
-          name: "TETTEH SIMON",
+          name: "Ms. KAFUI NORA",
+          yearOfCompletion: "No",
+          program: "Bsc Agriculture Extension and Community Development",
+          institution: "University of cape coast",
+          otherInfo: "Just the gye Nyame sign",
+          logoOption:
+            "School logo on one side (with custom inscription/text on the other)",
+          inscription: "God did it",
+        },
+        {
+          name: "DARKO JOSEPH",
+          yearOfCompletion: "No",
+          program: "Bsc. Agriculture",
+          institution: "University of Cape Coast",
+          otherInfo: "Abrubro nkosua",
+          logoOption:
+            "School logo on one side (with custom inscription/text on the other)",
+          inscription: "Abrubro nkosua",
+        },
+        {
+          name: "MISS ADULLEY ALUEMUZUAH ALICE",
+          yearOfCompletion: "No",
+          program: "BSc BioChemistry",
+          institution: "University of Cape Coast",
+          otherInfo: "",
+          logoOption:
+            "School logo on one side (with custom inscription/text on the other)",
+          inscription: "FOR DADDY",
+        },
+        {
+          name: "Miss AQ",
           yearOfCompletion: "Yes",
-          program: "BA. SOCIAL SCIENCE",
+          program: "B. Ed Home Economics",
           institution: "UCC",
+          otherInfo: "God did/ JTAD",
+          logoOption:
+            "School logo on one side (with custom inscription/text on the other)",
+          inscription: "God did",
+        },
+        {
+          name: "KOJO KONAMI",
+          yearOfCompletion: "Yes",
+          program: "BSc. Agribusiness",
+          institution: "UCC",
+          otherInfo: 'A statement..  " EVERYBODY DEY MISBEHAVE"',
+          logoOption:
+            "School logo on one side (with custom inscription/text on the other)",
+          inscription: "EVERYBODY DEY MISBEHAVE",
+        },
+        {
+          name: "MARCUS FAMEAH KWAME MESU",
+          yearOfCompletion: "Yes",
+          program: "Don't add the program",
+          institution: "University of Cape Coast",
+          otherInfo: "Ephesians 3:20 and truly graAced",
+          logoOption: "School logo on both side",
+          inscription: "",
+        },
+        {
+          name: "MISS NANCY BAAH",
+          yearOfCompletion: "Yes",
+          program: "BED. SOCIAL SCIENCE",
+          institution: "UNIVERSITY OF CAPE COAST",
+          otherInfo: "LIMITLESS AMBITION",
+          logoOption: "School logo on both side",
+          inscription: "",
+        },
+        {
+          name: "Zenith.M. Nyarko",
+          yearOfCompletion: "Yes",
+          program: "BED science Education",
+          institution: "university of cape coast",
+          otherInfo: "Degree Secured. Next?",
+          logoOption: "School logo on both side",
+          inscription: "",
+        },
+        {
+          name: "Miss FATI ISMAILA",
+          yearOfCompletion: "Yes",
+          program: "B.ED Social Science",
+          institution: "Ucc",
+          otherInfo: "Quran 95:5-6",
+          logoOption: "School logo on both side",
+          inscription: "",
+        },
+        {
+          name: "DZULEMEGBE SAMUEL",
+          yearOfCompletion: "Yes",
+          program: "BEd Social Sciences",
+          institution: "University of Cape Coast",
+          otherInfo: "Psalm 126",
+          logoOption: "School logo on both side",
+          inscription: "",
+        },
+        {
+          name: "Emmanuel KINGSFORD NUBIL",
+          yearOfCompletion: "Yes",
+          program: "BACHELOR OF EDUCATION (SOCIAL SCIENCE)",
+          institution: "UNIVERSITY OF CAPE COAST",
+          otherInfo: "GOD DID",
+          logoOption:
+            "School logo on one side (with custom inscription/text on the other)",
+          inscription: "GOD DID",
+        },
+        {
+          name: "Frederick Amponsah",
+          yearOfCompletion: "No",
+          program: "Bed social sciences",
+          institution: "University of Cape Coast",
           otherInfo: "",
           logoOption: "School logo on both side",
           inscription: "",
+        },
+        {
+          name: "EMMANUEL AFEDU",
+          yearOfCompletion: "Yes",
+          program: "B.ED Social Sciences",
+          institution: "University of Cape Coast",
+          otherInfo: "GOD'S PLAN",
+          logoOption:
+            "School logo on one side (with custom inscription/text on the other)",
+          inscription: "GOD'S PLAN",
+        },
+        {
+          name: "CONSTANCE ESI ANNOBIL",
+          yearOfCompletion: "Yes",
+          program: "BSc Lab Tech",
+          institution: "UCC",
+          otherInfo: "JEREMIAH 29:11",
+          logoOption:
+            "School logo on one side (with custom inscription/text on the other)",
+          inscription: "JEREMIAH 29:11",
         },
       ];
 
@@ -957,9 +1051,9 @@
       let currentFilter = "all";
       let currentSearchTerm = "";
 
-      // Create cards for each order
-      function createCards(ordersToDisplay = sashOrders) {
-        const container = document.getElementById("cardsContainer");
+      // Create accordion items for each order
+      function createAccordionItems(ordersToDisplay = sashOrders) {
+        const container = document.getElementById("accordionContainer");
         container.innerHTML = "";
 
         if (ordersToDisplay.length === 0) {
@@ -970,8 +1064,8 @@
         }
 
         ordersToDisplay.forEach((order, index) => {
-          const card = document.createElement("div");
-          card.className = "card";
+          const accordionItem = document.createElement("div");
+          accordionItem.className = "accordion-item";
 
           // Extract the main name (before any parentheses)
           const mainName = order.name.split("(")[0].trim();
@@ -979,20 +1073,18 @@
           // Check for special notes in the name
           const hasNameNote = order.name.includes("(");
 
-          card.innerHTML = `
-                    <div class="card-header">
-                        <h2><i class="fas fa-user-graduate"></i> ${mainName}</h2>
-                        <div class="program"><i class="fas fa-book-open"></i> ${
-                          order.program
-                        }</div>
-                        <div class="institution"><i class="fas fa-university"></i> ${
-                          order.institution
-                        }</div>
-                        <button class="show-more-btn" data-index="${index}">
-                            View Details <i class="fas fa-chevron-down"></i>
-                        </button>
+          accordionItem.innerHTML = `
+                    <div class="accordion-header" data-index="${index}">
+                        <div class="accordion-title">
+                            <i class="fas fa-user-graduate"></i>
+                            <div class="accordion-title-text">
+                                <h3>${mainName}</h3>
+                                <p>${order.program} - ${order.institution}</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
                     </div>
-                    <div class="card-body" id="card-body-${index}">
+                    <div class="accordion-body" id="accordion-body-${index}">
                         ${
                           hasNameNote
                             ? `<div class="note"><strong>Special Note:</strong> ${order.name.substring(
@@ -1001,33 +1093,33 @@
                               )}</div>`
                             : ""
                         }
-                        <div class="info-row">
-                            <div class="info-label"><i class="fas fa-user"></i> Full Name</div>
-                            <div class="info-value">${order.name}</div>
-                        </div>
-                        <div class="info-row">
-                            <div class="info-label"><i class="fas fa-calendar-alt"></i> Year of Completion</div>
-                            <div class="info-value"><span class="yes-no ${order.yearOfCompletion.toLowerCase()}">${
+                        <div class="accordion-content">
+                            <div class="content-section">
+                                <h4><i class="fas fa-user"></i> Full Name</h4>
+                                <p>${order.name}</p>
+                            </div>
+                            <div class="content-section">
+                                <h4><i class="fas fa-calendar-alt"></i> Year of Completion</h4>
+                                <p><span class="yes-no ${order.yearOfCompletion.toLowerCase()}">${
             order.yearOfCompletion
-          }</span></div>
-                        </div>
-                        <div class="info-row">
-                            <div class="info-label"><i class="fas fa-graduation-cap"></i> Program</div>
-                            <div class="info-value">${order.program}</div>
-                        </div>
-                        <div class="info-row">
-                            <div class="info-label"><i class="fas fa-school"></i> Institution</div>
-                            <div class="info-value">${order.institution}</div>
-                        </div>
-                        <div class="info-row">
-                            <div class="info-label"><i class="fas fa-info-circle"></i> Additional Information</div>
-                            <div class="info-value">${
-                              order.otherInfo || "None"
-                            }</div>
-                        </div>
-                        <div class="info-row">
-                            <div class="info-label"><i class="fas fa-image"></i> Logo Option</div>
-                            <div class="info-value">${order.logoOption}</div>
+          }</span></p>
+                            </div>
+                            <div class="content-section">
+                                <h4><i class="fas fa-graduation-cap"></i> Program</h4>
+                                <p>${order.program}</p>
+                            </div>
+                            <div class="content-section">
+                                <h4><i class="fas fa-school"></i> Institution</h4>
+                                <p>${order.institution}</p>
+                            </div>
+                            <div class="content-section">
+                                <h4><i class="fas fa-info-circle"></i> Additional Information</h4>
+                                <p>${order.otherInfo || "None"}</p>
+                            </div>
+                            <div class="content-section">
+                                <h4><i class="fas fa-image"></i> Logo Option</h4>
+                                <p>${order.logoOption}</p>
+                            </div>
                         </div>
                         ${
                           order.inscription
@@ -1041,23 +1133,30 @@
                     </div>
                 `;
 
-          container.appendChild(card);
+          container.appendChild(accordionItem);
         });
 
-        // Add event listeners to show more buttons
-        document.querySelectorAll(".show-more-btn").forEach((btn) => {
-          btn.addEventListener("click", function () {
+        // Add event listeners to accordion headers
+        document.querySelectorAll(".accordion-header").forEach((header) => {
+          header.addEventListener("click", function () {
             const index = this.getAttribute("data-index");
-            const cardBody = document.getElementById(`card-body-${index}`);
+            const accordionBody = document.getElementById(
+              `accordion-body-${index}`
+            );
+            const isActive = this.classList.contains("active");
 
-            cardBody.classList.toggle("active");
-            this.classList.toggle("active");
+            // Close all accordion items
+            document.querySelectorAll(".accordion-header").forEach((h) => {
+              h.classList.remove("active");
+            });
+            document.querySelectorAll(".accordion-body").forEach((body) => {
+              body.classList.remove("active");
+            });
 
-            if (cardBody.classList.contains("active")) {
-              this.innerHTML = 'Hide Details <i class="fas fa-chevron-up"></i>';
-            } else {
-              this.innerHTML =
-                'View Details <i class="fas fa-chevron-down"></i>';
+            // Open the clicked item if it wasn't active
+            if (!isActive) {
+              this.classList.add("active");
+              accordionBody.classList.add("active");
             }
           });
         });
@@ -1094,12 +1193,12 @@
           );
         }
 
-        createCards(filteredOrders);
+        createAccordionItems(filteredOrders);
       }
 
       // Initialize the page
       document.addEventListener("DOMContentLoaded", function () {
-        createCards();
+        createAccordionItems();
 
         // Update statistics
         const yearCompletionCount = sashOrders.filter(
@@ -1138,24 +1237,29 @@
 
         // Handle print event
         window.addEventListener("beforeprint", function () {
-          // Expand all cards before printing
-          document.querySelectorAll(".card-body").forEach((body) => {
+          // Expand all accordion items before printing
+          document.querySelectorAll(".accordion-header").forEach((header) => {
+            header.classList.add("active");
+          });
+          document.querySelectorAll(".accordion-body").forEach((body) => {
             body.classList.add("active");
           });
-          document.querySelectorAll(".show-more-btn").forEach((btn) => {
-            btn.style.display = "none";
+          document.querySelectorAll(".accordion-icon").forEach((icon) => {
+            icon.style.display = "none";
           });
         });
 
         // Restore after print
         window.addEventListener("afterprint", function () {
-          // Restore card states
-          document.querySelectorAll(".card-body").forEach((body) => {
+          // Restore accordion states
+          document.querySelectorAll(".accordion-header").forEach((header) => {
+            header.classList.remove("active");
+          });
+          document.querySelectorAll(".accordion-body").forEach((body) => {
             body.classList.remove("active");
           });
-          document.querySelectorAll(".show-more-btn").forEach((btn) => {
-            btn.style.display = "inline-flex";
-            btn.innerHTML = 'View Details <i class="fas fa-chevron-down"></i>';
+          document.querySelectorAll(".accordion-icon").forEach((icon) => {
+            icon.style.display = "block";
           });
         });
       });
