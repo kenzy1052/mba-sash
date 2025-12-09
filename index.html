@@ -66,7 +66,7 @@
           left: 0;
           right: 0;
           bottom: 0;
-          background: url('https://picsum.photos/seed/mba-graduation/1200/300.jpg');
+          background: url('https://picsum.photos/seed/graduation-sash/1200/300.jpg');
           background-size: cover;
           opacity: 0.2;
           z-index: 0;
@@ -225,7 +225,6 @@
           color: white;
       }
 
-      /* Updated accordion-style cards */
       .accordion-container {
           margin-top: 30px;
       }
@@ -342,7 +341,7 @@
           font-size: 0.95rem;
           color: #555;
           line-height: 1.5;
-          white-space: pre-wrap; /* To handle newlines in otherInfo */
+          white-space: pre-wrap;
       }
 
       .yes-no {
@@ -475,7 +474,6 @@
           100% { transform: rotate(360deg); }
       }
 
-      /* Print Styles */
       @media print {
           body {
               background: white;
@@ -483,12 +481,10 @@
               font-size: 12pt;
               line-height: 1.4;
           }
-
           .container {
               max-width: 100%;
               padding: 0;
           }
-
           header {
               background: none !important;
               color: black !important;
@@ -497,28 +493,22 @@
               margin-bottom: 20pt;
               page-break-after: avoid;
           }
-
           header::before {
               display: none;
           }
-
           header h1 {
               font-size: 24pt;
               color: var(--primary-color) !important;
               margin-bottom: 5pt;
           }
-
           header p {
               font-size: 14pt;
               color: black !important;
               opacity: 1 !important;
           }
-
           .logo-badge {
               display: none;
           }
-
-          /* Hide interactive elements */
           .stats-container,
           .search-filter-container,
           .accordion-icon,
@@ -526,13 +516,10 @@
           footer {
               display: none !important;
           }
-
-          /* Adjust accordion for print */
           .accordion-container {
               display: block;
               margin-top: 20pt;
           }
-
           .accordion-item {
               background: white;
               border: 1px solid #ddd;
@@ -540,62 +527,50 @@
               margin-bottom: 20pt;
               page-break-inside: avoid;
           }
-
           .accordion-header {
               background: var(--primary-color) !important;
               color: white !important;
               padding: 15pt;
               page-break-inside: avoid;
           }
-
           .accordion-header h3 {
               font-size: 16pt;
               margin-bottom: 5pt;
           }
-
           .accordion-header p {
               font-size: 12pt;
               margin-bottom: 3pt;
           }
-
-          /* Show all accordion bodies when printing */
           .accordion-body {
               padding: 15pt !important;
               max-height: none !important;
               page-break-inside: avoid;
           }
-
           .content-section {
               margin-bottom: 10pt;
           }
-
           .content-section h4 {
               font-weight: 600;
               font-size: 11pt;
           }
-
           .content-section p {
               font-size: 11pt;
           }
-
           .yes-no {
               padding: 2pt 6pt;
               font-size: 10pt;
               border: 1px solid;
           }
-
           .yes {
               background-color: white !important;
               color: var(--success-color) !important;
               border-color: var(--success-color);
           }
-
           .no {
               background-color: white !important;
               color: #e53e3e !important;
               border-color: #e53e3e;
           }
-
           .inscription {
               background-color: #f8f8f8;
               padding: 10pt;
@@ -603,7 +578,6 @@
               margin-top: 10pt;
               font-size: 11pt;
           }
-
           .note {
               background-color: #fff8e1;
               border: 1px solid var(--warning-color);
@@ -611,23 +585,17 @@
               margin-top: 10pt;
               font-size: 10pt;
           }
-
-          /* Ensure no page breaks in critical places */
           h1, h2, h3, h4 {
               page-break-after: avoid;
               page-break-inside: avoid;
           }
-
           .accordion-header {
               page-break-after: avoid;
               page-break-inside: avoid;
           }
-
           .content-section {
               page-break-inside: avoid;
           }
-
-          /* Add print header */
           @page {
               margin: 1.5cm;
               size: A4;
@@ -642,12 +610,9 @@
                   color: #666;
               }
           }
-
-          /* Counter for numbering */
           .accordion-item {
               counter-increment: card-counter;
           }
-
           .accordion-header::before {
               content: counter(card-counter) ". ";
               font-weight: bold;
@@ -659,16 +624,13 @@
           header h1 {
               font-size: 2.2rem;
           }
-
           .search-filter-container {
               flex-direction: column;
           }
-
           .filter-buttons {
               width: 100%;
               justify-content: space-between;
           }
-
           .accordion-content {
               grid-template-columns: 1fr;
           }
@@ -690,17 +652,17 @@
       <div class="stats-container">
         <div class="stat-card">
           <i class="fas fa-users"></i>
-          <h3 id="totalOrders">38</h3>
+          <h3 id="totalOrders">47</h3>
           <p>Total Orders</p>
         </div>
         <div class="stat-card">
           <i class="fas fa-check-circle"></i>
-          <h3 id="yearCompletion">29</h3>
+          <h3 id="yearCompletion">37</h3>
           <p>With Year of Completion</p>
         </div>
         <div class="stat-card">
           <i class="fas fa-university"></i>
-          <h3 id="uniquePrograms">21</h3>
+          <h3 id="uniquePrograms">24</h3>
           <p>Unique Programs</p>
         </div>
       </div>
@@ -738,7 +700,6 @@
         <p>Try adjusting your search or filter criteria</p>
       </div>
 
-      <!-- Updated accordion-style container -->
       <div class="accordion-container" id="accordionContainer">
         <!-- Accordion items will be dynamically generated here -->
       </div>
@@ -1130,6 +1091,96 @@
           otherInfo: "BEd. Social Sciences",
           logoOption: "School logo on both side",
           inscription: "",
+        },
+        {
+          name: "MISS ACHEAMPONG JUDITH",
+          yearOfCompletion: "Yes",
+          program: "BCOM HUMAN RESOURCE MANAGEMENT",
+          institution: "UCC",
+          otherInfo: "Phil 1:6\nGod behind the badge",
+          logoOption:
+            "School logo on one side (with custom inscription/text on the other)",
+          inscription: "PHIL 1:6",
+        },
+        {
+          name: "BERNARD KONADU BAAFI",
+          yearOfCompletion: "Yes",
+          program: "BSc BUSINESS COMMERCE HUMAN RESOURCE MANAGEMENT",
+          institution: "UNIVERSITY OF CAPE COAST",
+          otherInfo: "Psalm 118",
+          logoOption:
+            "School logo on one side (with custom inscription/text on the other)",
+          inscription: "FOR THE FAMILY",
+        },
+        {
+          name: "MRS JULIANA   YEBOAH",
+          yearOfCompletion: "No",
+          program: "B.E.D  MATHEMATICS",
+          institution: "UCC",
+          otherInfo: "ENA PA",
+          logoOption:
+            "School logo on one side (with custom inscription/text on the other)",
+          inscription: "ENA PA",
+        },
+        {
+          name: "MISS LORDIA APPIAH",
+          yearOfCompletion: "Yes",
+          program: "BSC HEALTH INFORMATION MANAGEMENT",
+          institution: "University of Cape Coast",
+          otherInfo: "THANK YOU MY WOMAN KING",
+          logoOption:
+            "School logo on one side (with custom inscription/text on the other)",
+          inscription: "THANK YOU MY WOMAN KING",
+        },
+        {
+          name: "GREGORY DOTSE",
+          yearOfCompletion: "Yes",
+          program: "BSc information Technology",
+          institution: "UNIVERSITY OF CAPE COAST",
+          otherInfo: "",
+          logoOption:
+            "School logo on one side (with custom inscription/text on the other)",
+          inscription: "FOR MUM AND DAD",
+        },
+        {
+          name: "RICHARD AFRIYIE ABROKWAH",
+          yearOfCompletion: "Yes",
+          program: "B.Ed social sciences (geography)",
+          institution: "UCC",
+          otherInfo: "Psalm 125",
+          logoOption:
+            "School logo on one side (with custom inscription/text on the other)",
+          inscription: "Psalm 125",
+        },
+        {
+          name: "MISS OLIVIA DANKWAH",
+          yearOfCompletion: "Yes",
+          program: "Social sciences geography and economics",
+          institution: "UCC",
+          otherInfo: "FOR MUMMY",
+          logoOption:
+            "School logo on one side (with custom inscription/text on the other)",
+          inscription: "FOR MUMMY",
+        },
+        {
+          name: "GABRIEL BOAFO",
+          yearOfCompletion: "No",
+          program: "Bachelor of education arts",
+          institution: "University of cape coast",
+          otherInfo: "Dear Onyame",
+          logoOption:
+            "School logo on one side (with custom inscription/text on the other)",
+          inscription: "DEAR ONYAME",
+        },
+        {
+          name: "Miss Sarah Bonney",
+          yearOfCompletion: "Yes",
+          program: "B. Ed social science",
+          institution: "Ucc",
+          otherInfo: "Romans 8:28",
+          logoOption:
+            "School logo on one side (with custom inscription/text on the other)",
+          inscription: "Romans 8:28",
         },
       ];
 
